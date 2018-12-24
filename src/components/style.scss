@@ -1,0 +1,55 @@
+.WeatherLocation{
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Location{
+    width: 100%;
+    text-align: center;
+}
+
+.WeatherData{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.WeatherTemperature{
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+
+    .span-one{
+        color: gray;
+
+        .span-one{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.WeatherExtraInfo{
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+
+    .span-one{
+        color: green;
+    }
+
+    .span-two{
+        color: blue;
+    }
+}
