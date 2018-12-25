@@ -5,8 +5,8 @@ import '../style.scss';
 
 const WeatherExtraInfo = ({ humidity, wind }) => (
     <div className="WeatherExtraInfo">
-        <span className="span-one">{`${humidity} % humedad - `}</span>
-        <span className="span-two">{`${wind} m/s viento`}</span>
+        <span className="span-one">{`Humedad: ${humidity} %`}</span>
+        <span className="span-two">{`Viento: ${wind} m/s`}</span>
     </div>
 );
 

@@ -1,6 +1,4 @@
 .WeatherLocation{
-    border: 2px solid gray;
-    border-radius: 5px;
     width: 70%;
     display: flex;
     align-items: center;
@@ -18,38 +16,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     padding: 10px;
     box-sizing: border-box;
+    background: #dfe4ea;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
 }
 
 .WeatherTemperature{
-    width: 100%;
-    padding: 5px;
+    width: 50%;
+    padding: 20px;
     box-sizing: border-box;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon{
+        color: #2980b9;
+        margin-right: 20px;
+    }
 
     .span-one{
-        color: gray;
-
-        .span-one{
-            font-size: 20px;
-            font-weight: bold;
-        }
+        color: #34495e;
+        font-size: 30px;
+        font-weight: bold;
     }
 }
 
 .WeatherExtraInfo{
-    width: 100%;
+    width: 50%;
     padding: 5px;
     box-sizing: border-box;
     text-align: center;
-
-    .span-one{
-        color: green;
-    }
-
-    .span-two{
-        color: blue;
-    }
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color: #34495e;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
