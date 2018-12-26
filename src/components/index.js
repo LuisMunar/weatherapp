@@ -10,6 +10,12 @@ import {
     FOG
 } from '../constants/weathers';
 
+const url_base_weather = 'api.openweathermap.org/data/2.5/weather';
+const location = 'Buenos Aires,ar';
+const api_key = '53693ad6eec34705172c7d89d8ecb8ba';
+
+const api_weather = `${url_base_weather}?Q=${location}&APPID=${api_key}`;
+
 const dataUno = {
     temperatureProps: 5,
     weatherStateProps: SUNNY,
@@ -46,7 +52,7 @@ class WeatherLocation extends Component {
             <div className="WeatherLocation">
                 <Location city={cityState} />
                 <WeatherData dataProps={dataState} />
-                <button onClick={this.handleClick}>Actualizar</button>
+                <button onClick={this.handleClick} className="button">Actualizar</button>
             </div>
         )
     }
