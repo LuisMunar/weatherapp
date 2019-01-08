@@ -12,7 +12,7 @@ import {
 
 const url_base_weather = 'api.openweathermap.org/data/2.5/weather';
 const location = 'Buenos Aires,ar';
-const api_key = '53693ad6eec34705172c7d89d8ecb8ba';
+const api_key = '53693ad6eec34705172c7d89d8ecb8 ba';
 
 const api_weather = `${url_base_weather}?Q=${location}&APPID=${api_key}`;
 
