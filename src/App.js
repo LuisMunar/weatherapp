@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import './App.scss';
-import WeatherLocation from './components/';
+import LocationList from './components/LocationList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <WeatherLocation />
+        <LocationList />
       </div>
     );
   }

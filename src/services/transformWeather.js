@@ -23,7 +23,7 @@ const transformWeather = (weather_data) => {
 
 /*funcion encargada de converdir el datos de los grados de temperatura de kelvin a celsius*/
 const getTemp = (kelvin) => {
-    return convert(kelvin).from('K').to('C');
+    return Number(convert(kelvin).from('K').to('C').toFixed(2));
 }
 
 /*funcion encargada de actualizar el icono*/

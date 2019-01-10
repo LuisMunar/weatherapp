@@ -1,3 +1,5 @@
+
+
 .WeatherLocation{
     width: 70%;
     display: flex;
@@ -66,4 +68,16 @@
     color: #34495e;
     font-weight: bold;
     letter-spacing: 1px;
+}
+
+.colorPregress{
+    color: #e67e22 !important;
+}
+
+.LocationList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
