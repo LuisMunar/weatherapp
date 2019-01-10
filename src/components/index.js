@@ -2,30 +2,20 @@ import React, { Component } from 'react';
 
 import Location from './Location';
 import WeatherData from './WeatherData/';
+import transformWeather from '../services/transformWeather';
+import { api_weather } from '../constants/api_url';
 
 import './style.scss';
 
 import {
     SUNNY,
-    FOG
 } from '../constants/weathers';
 
-const url_base_weather = 'http://api.openweathermap.org/data/2.5/weather';
-const location = 'Bogota,co';
-const api_key = '53693ad6eec34705172c7d89d8ecb8ba';
-const api_weather = `${url_base_weather}?q=${location}&APPID=${api_key}`;
-
-const dataUno = {
+const data = {
     temperatureProps: 5,
     weatherStateProps: SUNNY,
     humidityProps: 6,
     windProps: 7
-}
-const dataDos = {
-    temperatureProps: 15,
-    weatherStateProps: FOG,
-    humidityProps: 8,
-    windProps: 11
 }
 
 class WeatherLocation extends Component {
@@ -33,15 +23,27 @@ class WeatherLocation extends Component {
         super();
         this.state = {
             cityState: 'Armenia',
-            dataState: dataUno
+            dataState: data
         }
     }
 
+    /*esta funcion es asignada por la libreria de react, se encarga de ejecutar alguna accion en el primer instante
+    que se renderiza el sistema*/
+    componentDidMount() {
+        this.handleUpdateClick();
+    }
+
+    /*funcion encargada de realizar las consultas y actualizar el estado de los datos previamente filtrados
+    mediante la funcion getData()*/
     handleUpdateClick = () => {
-        fetch(api_weather);
-        this.setState({
-            cityState: 'Bogota',
-            dataState: dataDos
+        fetch(api_weather).then(resolve => {
+            return resolve.json();
+        }).then(data => {
+            const newWeather = transformWeather(data);
+            console.log(newWeather);
+            this.setState({
+                dataState: newWeather
+            });
         });
     }
 
