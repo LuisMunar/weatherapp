@@ -5,9 +5,16 @@ import LocationList from './components/LocationList';
 
 class App extends Component {
   render() {
+    const cities = [
+      'Armenia,col',
+      'Lima,pe',
+      'Washington,us',
+      'Buenos Aires,ar'
+    ]
+
     return (
       <div className="App">
-        <LocationList />
+        <LocationList cities={cities} />
       </div>
     );
   }

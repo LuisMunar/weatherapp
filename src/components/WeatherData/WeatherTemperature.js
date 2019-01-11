@@ -5,28 +5,27 @@ import PropTypes from 'prop-types';
 import '../style.scss';
 
 import {
-    SUNNY,
-    FOG,
+    CLOUD,
+    SUN,
     RAIN,
-    SLEET
+    SNOW,
+    THUNDER,
+    DRIZZLE
 } from '../../constants/weathers';
 
 const icons = {
-    [SUNNY]: 'day-sunny',
-    [FOG]: 'day-fog',
-    [RAIN]: 'day-rain',
-    [SLEET]: 'day-sleet'
+    [CLOUD]: 'cloud',
+    [SUN]: 'day-sunny',
+    [RAIN]: 'rain',
+    [SNOW]: 'snow',
+    [THUNDER]: 'day-thunderstore',
+    [DRIZZLE]: 'day-showers'
 }
 
 const getWeatherIcons = (weatherState) => {
-    if (weatherState) {
-        const icon = icons[weatherState];
-        return icon;
-    }
-    else {
-        const icon = icons['sunny'];
-        return icon;
-    }
+    const icon = icons[weatherState];
+    return icon;
+
 }
 
 const WeatherTemperature = ({ temperature, weatherState }) => (
