@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import WeatherTemperature from './WeatherTemperature';
 import WeatherExtraInfo from './WeatherExtraInfo';
 
-import '../style.scss';
+import '../../style.scss';
 
 const WeatherData = ({ dataProps }) => {
     const { temperatureProps, weatherStateProps, humidityProps, windProps } = dataProps;

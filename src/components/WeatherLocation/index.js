@@ -4,10 +4,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Location from './Location';
 import WeatherData from './WeatherData/';
-import transformWeather from '../services/transformWeather';
-import getUrlWeatherByCity from '../services/getUrlWeatherByCity';
+import transformWeather from '../../services/transformWeather';
+import getUrlWeatherByCity from '../../services/getUrlWeatherByCity';
 
-import './style.scss';
+import '../style.scss';
 
 class WeatherLocation extends Component {
     constructor(props) {
