@@ -4,6 +4,10 @@ import './App.scss';
 import LocationList from './components/LocationList';
 
 class App extends Component {
+  handleSelectedLocation = (city) => {
+    console.log(`handleSelectedLocation ${city}`);
+  }
+
   render() {
     const cities = [
       'Armenia,col',
@@ -14,7 +18,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <LocationList cities={cities} />
+        <LocationList
+          cities={cities}
+          onSelectedLocation={this.handleSelectedLocation}
+        />
       </div>
     );
   }
