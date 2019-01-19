@@ -55,7 +55,11 @@ class App extends Component {
           <Col xs={12} md={6}>
             <Paper elevation={4} className='details-super'>
               <div className='details'>
-                {city ? <ForecastExtended city={city} /> : 'No se selecciono ninguna ciudad'}
+                {city && <ForecastExtended city={city} />}
+                {
+                  /*el "&&" indicar null, osea que si la constante "city", definida previamente en el render, no esta contiene ningun valor, entonces
+                  nada se va a mostra en el componente "ForecastExtended", de lo contrario se va a mostrar el contenido de al constante "city"*/
+                }
               </div>
             </Paper>
           </Col>
