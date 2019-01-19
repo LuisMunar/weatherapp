@@ -7,10 +7,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import './App.scss';
 import LocationList from './components/LocationList';
+import ForecastExtended from './components/ForecastExtended';;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      city: null
+    };
+  }
 
   handleSelectedLocation = (city) => {
+    this.setState({
+      city
+    });
     console.log(`handleSelectedLocation ${city}`);
   }
 
@@ -22,9 +32,10 @@ class App extends Component {
       'Buenos Aires,ar'
     ]
 
+    const { city } = this.state;
+
     return (
       <Grid>
-
         <Row>
           <AppBar position='sticky'>
             <Toolbar>
@@ -34,7 +45,6 @@ class App extends Component {
             </Toolbar>
           </AppBar>
         </Row>
-
         <Row>
           <Col xs={12} md={6}>
             <LocationList
@@ -45,12 +55,11 @@ class App extends Component {
           <Col xs={12} md={6}>
             <Paper elevation={4} className='details-super'>
               <div className='details'>
-                dsdsd
-            </div>
+                {city ? <ForecastExtended city={city} /> : 'No se selecciono ninguna ciudad'}
+              </div>
             </Paper>
           </Col>
         </Row>
-
       </Grid>
     );
   }
