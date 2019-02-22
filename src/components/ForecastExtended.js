@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import getUrlForecastByCity from '../services/getUrlForecastByCity';
+import transformForecast from '../services/transformForecast';
 import './style.scss';
 //import ForecastItem from './ForecastItem/';
-import getUrlForecastByCity from '../services/getUrlForecastByCity';
 
 /*const data = {
     temperatureProps: 10,
@@ -32,17 +33,22 @@ class ForecastExtended extends Component {
 
     componentDidMount() {
         const api_forecast = getUrlForecastByCity(this.props.city);
-        fetch(api_forecast).then(
+        fetch(api_forecast)
+        .then(
             data => (data.json())
-        ).then(
+        )
+        .then(
             weather_data => {
-                console.log(weather_data)
+                console.log(weather_data);
+                const forecastData = transformForecast(weather_data);
+                console.log(forecastData)
+                this.setState({forecastData});
             }
         );
     }
 
     renderForecastItemDays = () => {
-        return 'render items'
+        return <h3>Render items</h3>
         //return days.map(day => <ForecastItem key={day} week_day={day} hour={1} dataProps={data} />);
     }
 
