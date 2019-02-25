@@ -1,10 +1,31 @@
-.details-super{
+/*------------------------ Estilo de App ------------------------*/
+.container-weather{
     height: 100%;
-    width: 100%;
+
+    .row-header{
+
+    }
+
+    .row-body{
+        height: 90%;
+
+        .colum-uno{
+            height: 95%;
+            overflow: auto;
+        }
+
+        .colum-dos{
+            background: #222F3F;
+            height: 95%;
+            overflow: auto;
+        }
+    }
+}
+/*----------------------------------------------------------------*/
+.details-super{
+    background: none !important;
 }
 
 .details{
-    background: #999;
-    height: 100%;
-    width: 100%;
+    background: none;
 }

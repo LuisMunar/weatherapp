@@ -35,8 +35,8 @@ class App extends Component {
     const { city } = this.state;
 
     return (
-      <Grid>
-        <Row>
+      <Grid className='container-weather'>
+        <Row className='row-header'>
           <AppBar position='sticky'>
             <Toolbar>
               <Typography variant='title' color='inherit'>
@@ -45,14 +45,14 @@ class App extends Component {
             </Toolbar>
           </AppBar>
         </Row>
-        <Row>
-          <Col xs={12} md={6}>
+        <Row className='row-body'>
+          <Col xs={12} md={6} className='colum-uno'>
             <LocationList
               cities={cities}
               onSelectedLocation={this.handleSelectedLocation}
             />
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={6} className='colum-dos'>
             <Paper elevation={4} className='details-super'>
               <div className='details'>
                 {city && <ForecastExtended city={city} />}

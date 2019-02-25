@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment/locale/es';
 import transformWeather from './transformWeather';
 
 const transformForecast = (data) => (

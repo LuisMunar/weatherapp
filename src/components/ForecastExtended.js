@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import getUrlForecastByCity from '../services/getUrlForecastByCity';
 import transformForecast from '../services/transformForecast';
+import ForecastItem from './ForecastItem/';
 import './style.scss';
-//import ForecastItem from './ForecastItem/';
 
 /*const data = {
     temperatureProps: 10,
@@ -47,9 +47,8 @@ class ForecastExtended extends Component {
         );
     }
 
-    renderForecastItemDays = () => {
-        return <h3>Render items</h3>
-        //return days.map(day => <ForecastItem key={day} week_day={day} hour={1} dataProps={data} />);
+    renderForecastItemDays = (forecastData) => {
+        return forecastData.map(forecast => <ForecastItem key={`${forecast.weekDay}${forecast.hour}`} week_day={forecast.weekDay} hour={forecast.hour} dataProps={forecast.data} />);
     }
 
     renderProgress = () => {
@@ -63,7 +62,7 @@ class ForecastExtended extends Component {
         return (
             <div className="ForecastExtended">
                 <h2 className="h2">Pronostico extendido {city}</h2>
-                {forecastData ? this.renderForecastItemDays() : this.renderProgress()}
+                {forecastData ? this.renderForecastItemDays(forecastData) : this.renderProgress()}
             </div>
         );
     }

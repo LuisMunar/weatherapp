@@ -5,9 +5,9 @@ import WeatherData from '../WeatherLocation/WeatherData/';
 
 const ForecastItem = ({ week_day, hour, dataProps }) => {
     return (
-        <div>
-            <span>Dia: {week_day} Hora: {hour}</span>
-            <WeatherData dataProps={dataProps} />
+        <div className='ForecastItem'>
+            <span className='span'>Dia: {week_day} Hora: {hour}</span>
+            <WeatherData className='container-forecastitem' dataProps={dataProps} />
         </div>
     );
 };
