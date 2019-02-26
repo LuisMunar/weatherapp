@@ -31,18 +31,31 @@ class ForecastExtended extends Component {
         }
     }
 
+    //Esta funcion es la primera que se ejecuta cuando se carga un componente
     componentDidMount() {
-        const api_forecast = getUrlForecastByCity(this.props.city);
+        this.updateCity(this.props.city)
+    }
+
+    //Actualiza los componentes que se le pasan props
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.city !== this.props.city) {
+            this.setState({forecastData : null})
+            this.updateCity(nextProps.city)
+        }
+    }
+
+    updateCity(city) {
+        const api_forecast = getUrlForecastByCity(city);
         fetch(api_forecast)
         .then(
             data => (data.json())
         )
         .then(
             weather_data => {
-                console.log(weather_data);
+                //console.log(weather_data);
                 const forecastData = transformForecast(weather_data);
-                console.log(forecastData)
-                this.setState({forecastData});
+                //console.log(forecastData)
+                this.setState({ forecastData });
             }
         );
     }
