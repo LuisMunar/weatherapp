@@ -4,10 +4,16 @@ import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import { createStore } from 'redux';
 
-import './App.scss';
 import LocationList from './components/LocationList';
-import ForecastExtended from './components/ForecastExtended';;
+import ForecastExtended from './components/ForecastExtended';
+import './App.scss';
+
+const store = createStore(
+  () => {},
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 class App extends Component {
   constructor() {
@@ -22,6 +28,12 @@ class App extends Component {
       city
     });
     console.log(`handleSelectedLocation ${city}`);
+
+    const action = {
+      type : 'setCity',
+      value : city
+    };
+    store.dispatch(action);
   }
 
   render() {
