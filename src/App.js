@@ -1,19 +1,23 @@
+// Importacion de dependencias.
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import { createStore } from 'redux';
 
+// Impotacion de componentes.
 import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
-import './App.scss';
 
-const store = createStore(
-  () => {},
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// Importancion del store redux.
+import { store } from './sotore';
+
+// Importacion de acciones para el store redux.
+import { setCity } from './actions';
+
+// Importacion de estilos.
+import './App.scss';
 
 class App extends Component {
   constructor() {
@@ -29,11 +33,8 @@ class App extends Component {
     });
     console.log(`handleSelectedLocation ${city}`);
 
-    const action = {
-      type : 'setCity',
-      value : city
-    };
-    store.dispatch(action);
+    // Con esta liena estamo enviando la action importada desde el archivo que contiene las actions al store. Lo podemos evidenciar en la pestaña de la herramienta devtool redux chroome.
+    store.dispatch(setCity(city));
   }
 
   render() {
