@@ -54,14 +54,16 @@ class ForecastExtended extends Component {
             weather_data => {
                 //console.log(weather_data);
                 const forecastData = transformForecast(weather_data);
-                //console.log(forecastData)
+                console.log(forecastData)
                 this.setState({ forecastData });
             }
         );
     }
 
     renderForecastItemDays = (forecastData) => {
-        return forecastData.map(forecast => <ForecastItem key={`${forecast.weekDay}${forecast.hour}`} week_day={forecast.weekDay} hour={forecast.hour} dataProps={forecast.data} />);
+        return forecastData.map(
+            forecast => <ForecastItem key={`${forecast.weekDay}${forecast.hour}`} week_day={forecast.weekDay} hour={forecast.hour} dataProps={forecast.data} />
+        );
     }
 
     renderProgress = () => {
