@@ -5,9 +5,9 @@ export const SET_CITY = 'SET_CITY';
 /* Este es el action creator (actionCreator) que se va a encargar de contener todas las acciones que se van a despachar al store
 por medio del metodo store.dispatch(), el store.dispatch siempre va a estar en el interior del componente clase. */
 
-export const setCity = (value) => (
+export const setCity = (payload) => (
   {
     type : SET_CITY,
-    value
+    payload
   }
 );
