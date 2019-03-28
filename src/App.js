@@ -6,21 +6,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 
-// Impotacion de componentes.
+// Containers components.
 import LocationListContainer from './containers/LocationListContainer';
-import ForecastExtended from './components/ForecastExtended';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 // Importacion de estilos.
 import './App.scss';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      city: null
-    };
-  }
-
   render() {
     const cities = [
       'Armenia,col',
@@ -28,8 +21,6 @@ class App extends Component {
       'Washington,us',
       'Buenos Aires,ar'
     ]
-
-    const { city } = this.state;
 
     return (
       <Grid className='container-weather'>
@@ -51,11 +42,7 @@ class App extends Component {
           <Col xs={12} md={6} className='colum-dos'>
             <Paper elevation={4} className='details-super'>
               <div className='details'>
-                {city && <ForecastExtended city={city} />}
-                {
-                  /*el "&&" indicar null, osea que si la constante "city", definida previamente en el render, no esta o no contiene ningun valor, entonces
-                  nada se va a mostra en el componente "ForecastExtended", de lo contrario se va a mostrar el contenido de al constante "city"*/
-                }
+                <ForecastExtendedContainer />
               </div>
             </Paper>
           </Col>
