@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Actions for redux.
-import { setCity } from '../actions/';
+import { setSelectedCity } from '../actions/';
 
 // Components.
 import LocationList from '../components/LocationList';
@@ -40,7 +40,7 @@ con su respectivo parametro (solo si aplica) y esta va a retornar el metodo disp
 "setCity(value)" */
 const mapDispatchToPorps = (dispatch) => (
     {
-        dispatchSetCity: value => dispatch(setCity(value))
+        dispatchSetCity: value => dispatch(setSelectedCity(value))
     }
 );
 

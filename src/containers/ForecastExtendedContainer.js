@@ -10,29 +10,41 @@ import ForecastExtended from '../components/ForecastExtended';
 
 class ForecastExtendedContainer extends Component {
     render() {
-        const { city } = this.props;
+        const { city, forecastData } = this.props;
         return (
-            city && <ForecastExtended city={ city }/>
-            /*el "&&" indica null, osea que si la constante "city", definida previamente en el render, no esta o no contiene ningun valor, entonces
-            nada se va a mostra en el componente "ForecastExtended", de lo contrario se va a mostrar el contenido de al constante "city"*/
+            city && // && valida que este definido, en caso tal de que no este definido, devuelve null.
+            <ForecastExtended
+                city={ city }
+                forecastData={ forecastData }
+            />
         );
     }
 }
 
+//Validamos lo props que viene desde el estado global de la app (el estado global lo trae la funcion mapStateToProps).
 ForecastExtendedContainer.propTypes = {
-    city : PropTypes.string.isRequired
+    city : PropTypes.string.isRequired,
+    forecastData: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => (
-    { city : state.city }
+const mapStateToProps = ({city, cities}) => (
+    {
+        city,
+        forecastData : cities[city] && cities[city].forecastData // && valida que este definido, en caso tal de que no este definido, devuelve null.
+    }
 )
-/* Si aplicamos destructurin la funcion mapStateToProps quesaria de la siguiente manera:
+/*
+Si aplicamos destructurin la funcion mapStateToProps quesaria de la siguiente manera:
     const mapStateToProps = ({ city }) => (
         { city }
     )
-Esto debido a que en el parametro estamos indicando que tomamos del objeto del estado la clave city
-y como debemos devolver como resultado un objeto, le decimos que nuestra clave en la funcion va a ser city
-y como el parametro tambien devuelve una clave city, entonces basta con retornar solo city en el objeto.
+Esto debido a que en el parametro estamos indicando que tomamos city del estado global de la app, y retornamos solo {city} por que son la misma clave valor.
+
+Si no aplicamos destructurin la funcion quedaria de la siguiente manera:
+    const mapStateToProps = (state) => (
+        { city : state.city }
+    )
+donde state contiene el estado global de la app.
 */
 
 export default connect(mapStateToProps, null)(ForecastExtendedContainer);

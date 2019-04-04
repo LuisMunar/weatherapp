@@ -1,20 +1,24 @@
 // Dependencias. 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
 // Reducers.
-import { city } from '../reducer/city';
+import reducers from '../reducer';
 
 // Initial state·
 const initialState = {
     city : 'Armenia,col'
 };
 
+// Herramienta de debuggin en chrome.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 // Este es el store de toda la aplicacion.
 export const store = createStore(
     // Este parametro es el reducer.
-    city,
+    reducers,
     // Este parametro es el initial state de la app.
     initialState,
-    // Con la siguiente linea conectamos la app a la herramienta devtools de redux chroome.
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // middleware y herramienta de debug chrome.
+    composeEnhancers(applyMiddleware(thunk))
 );
