@@ -15,3 +15,7 @@ export const cities = (state = {}, action) => {
             return state;
     }
 }
+
+export const getForecastDataFromCities = (state, city) => (
+    state[city] && state[city].forecastData // && valida que este definido, en caso tal de que no este definido, devuelve null.
+)

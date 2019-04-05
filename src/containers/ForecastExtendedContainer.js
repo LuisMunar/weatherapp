@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 // React-redux
 import { connect } from 'react-redux';
 
+// Selectors of reducers.
+import { getCity, getForecastDataFromCities } from '../reducer';
+
 // Components.
 import ForecastExtended from '../components/ForecastExtended';
 
@@ -24,13 +27,13 @@ class ForecastExtendedContainer extends Component {
 //Validamos lo props que viene desde el estado global de la app (el estado global lo trae la funcion mapStateToProps).
 ForecastExtendedContainer.propTypes = {
     city : PropTypes.string.isRequired,
-    forecastData: PropTypes.array.isRequired,
+    forecastData: PropTypes.array,
 };
 
-const mapStateToProps = ({city, cities}) => (
+const mapStateToProps = (state) => (
     {
-        city,
-        forecastData : cities[city] && cities[city].forecastData // && valida que este definido, en caso tal de que no este definido, devuelve null.
+        city: getCity(state),
+        forecastData : getForecastDataFromCities(state)
     }
 )
 /*
