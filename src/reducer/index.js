@@ -20,7 +20,7 @@ export default combineReducers(
 
 export const getCity = createSelector(
     state => state.city, // Funcion que recibe como parametro el state y retorna el valor que deceemos.
-    city => city // Funcion que recibe como parametro el resultado de la funcion que toma del state y retorna clve y valor (valor es el parametro).
+    city => city // Funcion que recibe como parametro el resultado de la funcion que toma del state y retorna clave y valor (valor es el parametro).
 )
 
 export const getForecastDataFromCities = createSelector(

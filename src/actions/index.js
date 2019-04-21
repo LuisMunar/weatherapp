@@ -44,10 +44,19 @@ const setWeatherCity = (payload) => (
 );
 
 export const setSelectedCity = (payload) => {
-  return dispatch => {
+  return (dispatch, getState) => {
     const api_forecast = getUrlForecastByCity(payload);
     // Accion que establece ciudad actual en el store.
     dispatch(setCity(payload));
+
+    // Validamos que no se vuelva a ejecutar el fetch si no ha pasado mas de un minuto.
+    const state = getState(); // getState devuelve el estado global de la app, este esta como parametro, por eso se puede acceder.
+    const date = state.cities[payload] && state.cities[payload].forecastDataDate;
+    const now = new Date();
+    if (date && (now-date) < 1*60*1000) {
+      return;
+    }
+
     // Fetch.
     return fetch(api_forecast)
     .then(
